@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+
+.app-bg {
+    background-color:#f8f9fa;}
+
+.fill-height{
+    height: -webkit-fill-available;
+}
+
+.fill-width{
+    width: 100%;
+}
+
+.left{
+    float: left;
+}
+
+.small-btn{
+    width: 25px !important;
+    height: 25px !important;
+}
+
+p-tree > div.ui-tree {
+    width:100%;
+}
+
+.ui-treenode-content:hover button{ 
+    display: inline;
+} 

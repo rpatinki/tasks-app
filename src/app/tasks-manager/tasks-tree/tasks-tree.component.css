@@ -1,0 +1,26 @@
+div.task-name:hover {
+    background-color: #f4f4f4;
+    cursor: pointer;
+}
+
+button{
+    display: none;
+}
+
+.task-text {
+    font-size: 20px;
+    font-weight: 600;
+    display: inline;
+}
+
+.task-success {
+    color: #34A835;
+}
+
+.task-completed {
+    text-decoration-line: line-through;
+}
+
+.task-progress {
+       color: #23629F;
+}

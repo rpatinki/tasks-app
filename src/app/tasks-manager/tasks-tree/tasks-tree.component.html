@@ -1,0 +1,58 @@
+<button (click)="createNewTask()"
+    pButton 
+    type="button" 
+    label="New Task" 
+    icon="pi pi-plus"></button>
+
+<p-tree [value]="tasksTree" class="fill-width">
+  <ng-template let-node pTemplate="default">
+    <div class="fill-width">
+
+      <div class="left task-name pr-4 pl-0" 
+        (click)="taskSelected(node.data)">
+        <span *ngIf="node.data.status === 'started'" 
+            class="pi pi-spinner task-text task-progress"></span>
+        <span *ngIf="node.data.status === 'completed'" 
+            class="pi pi-check task-text task-success"></span>
+        <p 
+            [ngClass]="{'task-progress': node.data.status === 'started', 'task-success task-completed': node.data.status === 'completed'}" 
+            class="task-text">{{node.label}}</p>
+      </div>
+
+      <div class="icons">
+        <button *ngIf="node.data.status !== 'completed'"
+          pButton type="button" 
+          class="ui-button-secondary ui-button-raised ui-button-rounded small-btn" 
+          icon="pi pi-plus" 
+          pTooltip="Add sub task"
+          (click)="addSubTask(node.data)"
+          tooltipPosition="top">
+        </button>
+        <button *ngIf="node.data.status !== 'completed'" 
+          pButton type="button" 
+          class="ui-button-secondary ui-button-raised ui-button-rounded small-btn" 
+          icon="pi pi-check" 
+          pTooltip="Mark task completed"
+          (click)="completeTask(node.data)"
+          tooltipPosition="top">
+        </button>
+        <button *ngIf="node.data.status !== 'completed' && node.data.status !== 'started'"
+          pButton type="button" 
+          class="ui-button-secondary ui-button-rounded small-btn" 
+          icon="pi pi-arrow-right" 
+          pTooltip="Mark task started"
+          (click)="startTask(node.data)"
+          tooltipPosition="top">
+        </button>
+        <button 
+          pButton type="button" 
+          class="ui-button-secondary ui-button-raised ui-button-rounded small-btn" 
+          icon="pi pi-trash" 
+          pTooltip="Delete task"
+          (click)="deleteTask(node.data)"
+          tooltipPosition="top">
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</p-tree>

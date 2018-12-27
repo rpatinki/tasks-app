@@ -1,0 +1,23 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <h3>Edit Task</h3>
+  <div class="container-fluid">
+    <div class="row">
+      <label>
+        Title:
+        <input type="text" pInputText formControlName="title">
+      </label>
+    </div>
+    <div class="row">
+      <label>
+        Description:
+        <input type="text" pInputText formControlName="description">
+      </label>
+    </div>
+  </div>
+
+  <p>
+    Form Status: {{ taskForm.value }}
+  </p>
+  <button type="submit">Save</button>
+
+</form>
