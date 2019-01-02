@@ -1,10 +1,6 @@
-<button (click)="createNewTask()"
-    pButton 
-    type="button" 
-    label="New Task" 
-    icon="pi pi-plus"></button>
+<h2 *ngIf="tasksTree.length === 0" class="text-center" style="margin-top: 200px">No active tasks</h2>
 
-<p-tree [value]="tasksTree" class="fill-width">
+<p-tree [value]="tasksTree" class="fill-width" *ngIf="tasksTree.length !== 0">
   <ng-template let-node pTemplate="default">
     <div class="fill-width">
 
@@ -20,7 +16,7 @@
       </div>
 
       <div class="icons">
-        <button *ngIf="node.data.status !== 'completed'"
+        <button *ngIf="node.data.status !== 'completed' && node.data.parent === 0"
           pButton type="button" 
           class="ui-button-secondary ui-button-raised ui-button-rounded small-btn" 
           icon="pi pi-plus" 
